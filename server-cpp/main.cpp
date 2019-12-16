@@ -9,6 +9,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+#include "../sendall-h/sendall.h"
+
 #include <algorithm>
 #include <set>
 
@@ -102,7 +104,7 @@ int main() {
                 );
                 int sum = numbers[0] + numbers[1];
                 printf("Calculated sum: %d \nSending it to the client...\n", sum);
-                send(*it, (void *)&sum, sizeof(sum), 0);
+                sendall(*it, (void *)&sum, sizeof(sum), 0);
             }
         }
     }

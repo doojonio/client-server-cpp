@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
-
+#include "../sendall-h/sendall.h"
 
 int main() {
 
@@ -32,7 +32,7 @@ int main() {
 
         void * answer = (void *)&ans;
         
-        send(sock, numbers, sizeof(numbers), 0);
+        sendall(sock, numbers, sizeof(numbers), 0);
         recv(sock, answer, sizeof(ans), 0);
 
         ans = *static_cast<int*>(answer);
